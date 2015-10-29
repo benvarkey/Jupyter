@@ -13,7 +13,6 @@
   else // Plain browser env
     mod(CodeMirror);
 })(function(CodeMirror) {
-// define(["codemirror/lib/codemirror"], function(CodeMirror) {
 "use strict";
 
 CodeMirror.defineMode("skill", function () {

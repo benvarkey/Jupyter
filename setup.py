@@ -25,7 +25,7 @@ class install_with_kernelspec(install):
                 json.dump(kernel_json, f, sort_keys=True)
             # TODO: Copy resources once they're specified
 
-            log.info('Installing IPython kernel spec')
+            log.info('Installing Virtuoso kernel spec')
             install_kernel_spec(td, 'virtuoso', user=self.user, replace=True)
 
 #with open('README.rst') as f:
@@ -36,15 +36,18 @@ if svem_flag in sys.argv:
     sys.argv.remove(svem_flag)
 
 setup(name='virtuoso_kernel',
-      version='0.2',
+      version='0.3',
       description='A virtuoso kernel for IPython',
       #long_description=readme,
       author='Ben Varkey Benjamin',
       author_email='benvarkey@gmail.com',
       #url='',
       packages=['virtuoso_kernel'],
+      package_data={'virtuoso_kernel': ['pyll/pyllserver.il',
+                                        'pyll/pyllserver.py']},
+      include_package_data=True,
       cmdclass={'install': install_with_kernelspec},
-      install_requires=['pexpect>=3.3', 'colorama>=0.3.3'],
+      install_requires=['colorama>=0.3.3'],
       classifiers = [
           'Framework :: IPython',
           'License :: OSI Approved :: Apache Software License',
